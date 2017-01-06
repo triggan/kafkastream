@@ -25,7 +25,8 @@ Insert some overview text.
 
 **etc/hadoop/core-site.xml:**
 
-```<configuration>
+```
+<configuration>
     <property>
         <name>fs.defaultFS</name>
         <value>hdfs://localhost:9000</value>
@@ -35,7 +36,8 @@ Insert some overview text.
 
 **etc/hadoop/hdfs-site.xml:**
 
-```<configuration>
+```
+<configuration>
     <property>
         <name>dfs.replication</name>
         <value>1</value>
