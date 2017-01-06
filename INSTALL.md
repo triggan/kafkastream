@@ -46,5 +46,16 @@ Insert some overview text.
 ```
 
 2. Generate keys for SSH Passphraseless login:
-  NOTE: Apache Hadoop Install documentation uses dsa encryption.  Ubuntu default SSH settings do not allow dss/dsa as acceptable encyrption algorithms.  Instead use rsa (which is the default when running 
+NOTE: Be careful that you use RSA encryption when using a newer version of Ubuntu.  As of OpenSSH 7.0, DSA encyrption as been deprecated.  Older Hadoop documentation still references DSA key creation.
+
+```
+$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+$ chmod 0600 ~/.ssh/authorized_keys
+````
+
+3. Test Passphraseless login: `ssh localhost`
+NOTE: If this does not work, check the /var/log/auth.log for errors.
+
+
 
