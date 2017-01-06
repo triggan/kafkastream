@@ -23,39 +23,39 @@ Insert some overview text.
 
 1. Make the following edits to the HDFS configuration files:
 
-**etc/hadoop/core-site.xml:**
+   **etc/hadoop/core-site.xml:**
 
-```
-<configuration>
-    <property>
-        <name>fs.defaultFS</name>
-        <value>hdfs://localhost:9000</value>
-    </property>
-</configuration>
-```
+   ```
+   <configuration>
+       <property>
+           <name>fs.defaultFS</name>
+           <value>hdfs://localhost:9000</value>
+       </property>
+   </configuration>
+   ```
 
-**etc/hadoop/hdfs-site.xml:**
+   **etc/hadoop/hdfs-site.xml:**
 
-```
-<configuration>
-    <property>
-        <name>dfs.replication</name>
-        <value>1</value>
-    </property>
-</configuration>
-```
+   ```
+   <configuration>
+       <property>
+           <name>dfs.replication</name>
+           <value>1</value>
+       </property>
+   </configuration>
+   ```
 
 2. Generate keys for SSH Passphraseless login:
-NOTE: Be careful that you use RSA encryption when using a newer version of Ubuntu.  As of OpenSSH 7.0, DSA encyrption as been deprecated.  Older Hadoop documentation still references DSA key creation.
+   NOTE: Be careful that you use RSA encryption when using a newer version of Ubuntu.  As of OpenSSH 7.0, DSA encyrption as been deprecated.  Older Hadoop documentation still references DSA key creation.
 
-```
-$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-$ chmod 0600 ~/.ssh/authorized_keys
-````
+   ```
+   $ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+   $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+   $ chmod 0600 ~/.ssh/authorized_keys
+   ````
 
 3. Test Passphraseless login: `ssh localhost`
-NOTE: If this does not work, check the /var/log/auth.log for errors.
+   NOTE: If this does not work, check the /var/log/auth.log for errors.
 
 
 
