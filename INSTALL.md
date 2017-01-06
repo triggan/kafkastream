@@ -23,3 +23,26 @@ Insert some overview text.
 
 1. Make the following edits to the HDFS configuration files:
 
+**etc/hadoop/core-site.xml:**
+
+```<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
+    </property>
+</configuration>
+```
+
+**etc/hadoop/hdfs-site.xml:**
+
+```<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+</configuration>
+```
+
+2. Generate keys for SSH Passphraseless login:
+  NOTE: Apache Hadoop Install documentation uses dsa encryption.  Ubuntu default SSH settings do not allow dss/dsa as acceptable encyrption algorithms.  Instead use rsa (which is the default when running 
+
